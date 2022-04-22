@@ -12,9 +12,9 @@ import (
 )
 
 func main() {
-	// fmt.Println(countingValleys(8, "UDDDUDUU"))                                         // https://www.hackerrank.com/challenges/counting-valleys/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+	fmt.Println(countingValleys(8, "UDDDUDUU"))                                         // https://www.hackerrank.com/challenges/counting-valleys/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
 	// fmt.Println(sockMerchant(9, []int32{10, 10, 10, 20, 20, 30, 30, 60, 80}))           // https://www.hackerrank.com/challenges/sock-merchant/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-	// fmt.Println(arrayManipulation(5, [][]int32{{1, 2, 100}, {2, 5, 100}, {3, 4, 100}})) // https://www.hackerrank.com/challenges/crush/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+	fmt.Println(arrayManipulation(5, [][]int32{{1, 2, 100}, {2, 5, 100}, {3, 4, 100}})) // https://www.hackerrank.com/challenges/crush/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 	// fmt.Println(jumpingOnClouds([]int32{0, 0, 0, 0, 0, 1, 0, 0, 1, 0}))                 // https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
 
 	// fmt.Println(perfectSubstring2("1102021222", 2)) //avg time 1753
@@ -27,24 +27,24 @@ func main() {
 	// coba()
 	// a := "asb"
 	// fmt.Println(string(a[2]))
-	fmt.Println(compressedString("wwww"))
-	item := [][]string{{"p1", "5", "5"}, {"p2", "20", "2"}, {"p2", "5", "100"}}
-	sortParam := int32(0) // 0 name 1 relevance 2 price by kolom aja
-	sortOrder := int32(0) // ascending // 1 descending
-	itemperPage := int32(2)
-	pageNumber := int32(1) // page number start from 0
-	fmt.Println(fetchItemsToDisplay(item, sortParam, sortOrder, itemperPage, pageNumber))
+	// fmt.Println(compressedString("wwww"))
+	// item := [][]string{{"p1", "5", "5"}, {"p2", "20", "2"}, {"p2", "5", "100"}}
+	// sortParam := int32(0) // 0 name 1 relevance 2 price by kolom aja
+	// sortOrder := int32(0) // ascending // 1 descending
+	// itemperPage := int32(2)
+	// pageNumber := int32(1) // page number start from 0
+	// fmt.Println(fetchItemsToDisplay(item, sortParam, sortOrder, itemperPage, pageNumber))
 
-	fmt.Println("done")
-	var occurenceArr = make(map[int]int)
-	occurenceArr[2]++
-	fmt.Println(solution([]int{1, 2, 3, 9, 3, 5, 10, 100}))
+	// fmt.Println("done")
+	// var occurenceArr = make(map[int]int)
+	// occurenceArr[2]++
+	// fmt.Println(solution([]int{1, 2, 3, 9, 3, 5, 10, 100}))
 
-	fmt.Println("done xxx")
-	fmt.Println(solution2Ajaib(10, 10))
+	// fmt.Println("done xxx")
+	// fmt.Println(solution2Ajaib(10, 10))
 
-	fmt.Println("done 2")
-	fmt.Println(solution3Ajaib([]int{3, 7, 2, 5, 4}))
+	// fmt.Println("done 2")
+	// fmt.Println(solution3Ajaib([]int{3, 7, 2, 5, 4}))
 
 }
 
