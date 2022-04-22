@@ -1,0 +1,240 @@
+<head>
+  asd
+</head>
+
+<script>
+  function colorFill(colorArr, arr, average, currVal, color) {
+    let added = false;
+    for (let i = 0; i < colorArr.length; i++) {
+      if (!colorArr[i]) {
+        let tempSum = currVal + arr[i];
+
+        if (tempSum === average) {
+          added = true;
+          colorArr[i] = color;
+          break;
+        } else if (tempSum < average) {
+          let newColored = [...colorArr];
+          newColored[i] = color;
+          let retColored = colorFill(newColored, arr, average, tempSum, color);
+          if (retColored) {
+            added = true;
+            colorArr = retColored;
+            break;
+          }
+        }
+      }
+    }
+    return added ? colorArr : false;
+  }
+
+  function solution(A) {
+    var start = performance.now();
+    let colorArr = new Array(A.length);
+    let totalColor = 3;
+    let sumArr = A.reduce((a, b) => a + b, 0);
+    let result = "";
+
+    // See if sum of array is divisible by average or sum array;
+    if (sumArr % totalColor === 0 && A.length >= totalColor) {
+      let average = sumArr / totalColor;
+      colorArr = colorFill(colorArr, A, average, 0, "R");
+      colorArr = colorFill(colorArr, A, average, 0, "G");
+      colorArr = colorFill(colorArr, A, average, 0, "B");
+      if (colorArr) {
+        // parse result array color to string
+        result = colorArr.join("");
+      } else {
+        //cant sum tricolor equally
+        result = "impossible";
+      }
+    } else {
+      result = "impossible";
+    }
+    var duration = performance.now() - start;
+    console.log(duration);
+    return result;
+  }
+
+  // console.log(solution([3,7,2,5,4,3,7,2,5,4,3,7,2,5,4,3,7,2,5,4]));
+
+  function getMax(data) {
+    //
+    let stack = [];
+    let result = [];
+    let arrLength = data.length;
+    const push = 1;
+    const pop = 2;
+    const print = 3;
+    for (let i = 0; i < arrLength; i++) {
+      const value = data[i].split(" ");
+      if (Number(value[0]) === push) {
+        stack.push(Number(value[1]));
+      } else if (Number(value[0]) === pop) {
+        stack.pop();
+      } else {
+        const maxValue = Math.max(...stack);
+        result.push(maxValue);
+      }
+    }
+    return result;
+  }
+
+  function timeConversion(s) {
+    // Write your code here
+    const isAM = s.substr(8, 2) === "AM";
+    const hour = s.substr(0, 2);
+
+    let fixedHour = Number(hour);
+    if (isAM && Number(hour) === 12) {
+      fixedHour -= 12;
+    } else if (!isAM && Number(hour) < 12) {
+      fixedHour += 12;
+    }
+
+    const result =
+      fixedHour < 10
+        ? "0" + String(fixedHour) + s.substr(2, 6)
+        : String(fixedHour) + s.substr(2, 6);
+    return result;
+  }
+
+  function countingSort(arr) {
+    // Write your code here
+    let counts = Array(100).fill(0);
+    arr.forEach((item) => {
+      ++counts[item];
+    });
+    return counts;
+  }
+
+  function lonelyinteger(a) {
+    // Write your code here
+    const lonelyArr = a.filter((val) => {
+      return a.indexOf(val) === a.lastIndexOf(val);
+    });
+
+    return lonelyArr[0];
+  }
+
+  function minMaxArrayInt(arr) {
+    let i = arr.length;
+    let minVal = arr[0];
+    let maxVal = arr[0];
+    while (i--) {
+      minVal = arr[i] < minVal ? arr[i] : minVal;
+      maxVal = arr[i] > maxVal ? arr[i] : maxVal;
+    }
+    return {
+      min: minVal,
+      max: maxVal,
+    };
+  }
+  function miniMaxSum(arr) {
+    // Write your code here
+    let totalMax = 0,
+      totalMin = 0,
+      countCalMax = 0,
+      countCalMin = 0;
+    const maxSumCount = 4;
+    const { min, max } = minMaxArrayInt(arr);
+    let x = arr.length;
+    while (x--) {
+      if (arr[x] === min && countCalMin < maxSumCount && min !== max) {
+        countCalMin++;
+        totalMin += arr[x];
+      } else if (arr[x] === max && countCalMax < maxSumCount && min !== max) {
+        countCalMax++;
+        totalMax += arr[x];
+      } else {
+        if (countCalMin < maxSumCount) {
+          countCalMin++;
+          totalMin += arr[x];
+        }
+        if (countCalMax < maxSumCount) {
+          countCalMax++;
+          totalMax += arr[x];
+        }
+      }
+    }
+    console.log(totalMin + " " + totalMax);
+  }
+
+  function diagonalDifference(arr) {
+    // Write your code here
+    let reverseLoop = arr.length - 1;
+    const lengthArr = arr.length;
+    let primDiagonal = 0;
+    let secDiagonal = 0;
+    for (let i = 0; i < lengthArr; i++) {
+      primDiagonal += arr[i][i];
+      secDiagonal += arr[i][reverseLoop];
+      reverseLoop--;
+    }
+
+    return Math.abs(primDiagonal - secDiagonal);
+  }
+
+  function plusMinus(arr) {
+    // Write your code here
+    let positive = 0;
+    let negative = 0;
+    let zero = 0;
+    let total = arr.length;
+    for (let i = 0; i < total; i++) {
+      if (arr[i] === 0) {
+        zero++;
+      } else if (arr[i] > 0) {
+        positive++;
+      } else {
+        negative++;
+      }
+    }
+    const resultPositive = (positive / total).toFixed(6);
+    console.log(resultPositive);
+
+    const resultNegative = (negative / total).toFixed(6);
+    console.log(resultNegative);
+
+    const resultZero = (zero / total).toFixed(6);
+    console.log(resultZero);
+
+    console.log(twoStrings("adasd", "hehehe"));
+  }
+
+  console.log(timeConversion("07:05:45PM")); //https://www.hackerrank.com/challenges/one-week-preparation-kit-time-conversion/submissions/code/251530822
+  console.log(getMax(["1 81", "2", "1 20", "3"])); // https://www.hackerrank.com/challenges/maximum-element/submissions/code/249790442
+  console.log(countingSort([1, 2, 3, 4, 5, 6123, 12, 2])); // https://www.hackerrank.com/challenges/one-week-preparation-kit-countingsort1/submissions/code/248846046
+  console.log(lonelyinteger([1, 2, 2, 3, 3, 4, 4, 5, 5])); // https://www.hackerrank.com/challenges/one-week-preparation-kit-lonely-integer/submissions/code/248516964
+  miniMaxSum([1, 2, 3, 4, 5, 6]); //https://www.hackerrank.com/challenges/one-week-preparation-kit-mini-max-sum/submissions/code/247606057
+
+  console.log(
+    diagonalDifference([
+      [1, 2, 3],
+      [2, 4, 2],
+      [2, 2, 2],
+    ])
+  );
+
+  plusMinus([1, 0, -1, 1, 1]);
+  console.log("test");
+
+  //sorting array
+  let arr = [[12, "AAA"][(58, "BBB")][(28, "CCC")][(18, "DDD")]];
+  arr.sort(function (a, b) {
+    return a[0] - b[0];
+  });
+  //If you want to sort based on second column (which contains string value), then try this:
+
+  arr.sort(function (a, b) {
+    return a[1].charCodeAt(0) - b[1].charCodeAt(0);
+  });
+
+  function twoStrings(s1, s2) {
+    return [...s1].some((val) => {
+      if (s2.includes(val)) return true;
+    })
+      ? "YES"
+      : "NO";
+  }
+</script>
