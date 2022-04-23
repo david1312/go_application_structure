@@ -1,0 +1,20 @@
+<head>
+  asd
+</head>
+
+<script>
+  function checkMagazine(magazine, note) {
+    const map = {};
+    for (var i of magazine) {
+      map[i] = (map[i] || 0) + 1;
+    }
+    for (var i of note) {
+      map[i] = (map[i] || 0) - 1;
+      if (map[i] < 0) {
+        console.log("No");
+        return;
+      }
+    }
+    console.log("Yes");
+  }
+</script>
